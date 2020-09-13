@@ -1,0 +1,141 @@
+select number
+select 1
+select 3
+select 2
+选择库
+
+string类型 512m 二进制
+set p1 "faker"
+加一个键值对
+mset p2 uzi p3 clearlove p4 jackylove
+加多个键值对
+setex p5 5 shy
+设置多久过期
+get p1
+获取值
+mget p1 p2 p3 p4
+获取多个值
+set p7 15
+incr p7
+值加1
+decr p7
+值减一
+incrby p7 6
+incrby p7 number
+值加number
+decrby p7 1
+decrby p7 number
+值减number
+keys *
+查看左右键
+exists p5
+exists key
+查看键是否存在  1存在 0不存在
+type p7
+查看键的数据类型
+setex p9 90 alibaba
+ttl p9
+查看p9到期时间
+
+
+字典类型
+hset h1 skt faker
+存一个
+hmset h2 skt faker kt deft
+存多个
+hget h1 skt
+获取一个值
+hmget h2 skt kt
+获取多个
+hlen h2
+获取键个数
+hvals h2
+获取所有的值
+hexists h2 skt
+hexists h2 key
+判断key是否存在 1 存在 0 不存在
+hdel h2 kt
+hdel h2 key
+根据字典键删除整队键值对
+hash没有时间限制
+
+list类型
+lpush list1 skt kt omg
+左侧添加
+lpush list1 edg
+lrange list1 0 -1
+1) "edg"
+2) "omg"
+3) "kt"
+4) "skt"
+rpush list1 tes
+右侧添加
+lrange list1 0 -1
+1) "edg"
+2) "omg"
+3) "kt"
+4) "skt"
+5) "tes"
+linsert list1 before omg jdg |after
+before 或者after 
+lrange list1 0 -1
+1) "edg"
+2) "jdg"
+3) "omg"
+4) "kt"
+5) "skt"
+6) "tes"
+---------------------------------------
+lset list1 1 text
+按照索引修改值
+1) "edg"
+2) "text"
+3) "omg"
+4) "kt"
+5) "skt"
+6) "tes"
+---------------------------------------
+ltrim list1 1 5
+lrange list1 0 -1
+1) "text"
+2) "omg"
+3) "kt"
+4) "skt"
+5) "tes"
+裁剪
+---------------------------------------
+llen list1
+查看长度
+lindex list1 4
+查看值
+lpop list1
+左删除第一个
+rpop list1
+右删除第一个
+
+
+集合类型
+sadd set1 s1 s2 s3 s4
+添加
+smembers set1
+查看
+scard set1
+查看个数
+zadd set 1 python 33 java 22 c++
+带有权重的集合添加数据
+zrange set 0 -1
+
+FLUSHALL
+删除所有
+
+订阅
+1
+subscribe python
+2
+subscribe java
+3
+subscribe c
+4
+publish python "hi boy"
+publish java "hi"
+publish c "hello"
